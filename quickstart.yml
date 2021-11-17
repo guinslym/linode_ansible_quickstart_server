@@ -4,9 +4,14 @@
     connection: local
     tasks:
 
-    - name: "just execute a ls -lrt command"
-      shell: "ls -lrt"
-      register: "output"
+    - name: System details
+      when: ansible_distribution == 'Ubuntu' and  ansible_distribution_version == "20.04"
+      debug: msg="{{ item }}"
+      with_items: 
+      - "{{ ansible_distribution }}"
+      - "{{ ansible_distribution_version }}"
+      - "{{ ansible_distribution_major_version }}"
+      - "{{ ansible_distribution_release  }}"
 
     - name: Update apt-get repo and cache
       apt:
@@ -40,5 +45,26 @@
             - libpq-dev
             - python3-setuptools
             - python3-venv
-            - python-is-python3
         when: ansible_pkg_mgr == 'apt'
+      
+    - name: Remove dependencies that are no longer kequired
+      apt:
+        autoremove: yes
+        purge: yes
+
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+
+    - name: Create locales
+      locale_gen:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - en_US.UTF-8
+        - fr_FR.UTF-8
+      when: ansible_pkg_mgr == 'apt'
+
+    - name: Set timezone to America/Toronto
+      timezone:
+        name: America/Toronto
