@@ -1,0 +1,44 @@
+---
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local
+    tasks:
+
+    - name: "just execute a ls -lrt command"
+      shell: "ls -lrt"
+      register: "output"
+
+    - name: Update apt-get repo and cache
+      apt:
+        update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+    - block:
+      - name: Install base packages
+        package:
+          name: "{{ packages }}"
+          state: present
+        vars:
+          packages:
+            - git
+            - vim
+            - htop
+            - ffmpeg
+            - tree
+            - make
+            - gcc
+            - ntp
+            - yamllint
+            - unzip
+            - sysstat
+            - curl
+            - python3
+            - ufw
+            - python3-pip
+            - build-essential
+            - libssl-dev
+            - libffi-dev
+            - libpq-dev
+            - python3-setuptools
+            - python3-venv
+            - python-is-python3
+        when: ansible_pkg_mgr == 'apt'
