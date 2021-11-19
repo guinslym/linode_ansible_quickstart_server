@@ -3,7 +3,9 @@ set -e
 
 patching(){
     sudo apt update -y;
-    sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y;
+    sudo DEBIAN_FRONTEND=noninteractive apt install vim -y;
+    sudo DEBIAN_FRONTEND=noninteractive apt install tree -y;
+    sudo DEBIAN_FRONTEND=noninteractive apt install ansible -y;
 };
 
 patching;
