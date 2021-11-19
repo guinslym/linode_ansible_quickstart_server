@@ -12,6 +12,9 @@ patching(){
     chmod 777 install_docker.sh
     sudo bash install_docker.sh
     sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y;
+    sudo rm install_docker.sh
+    sudo rm quickstart.yml
+    sudo rm quickstart.sh
 };
 
 patching;
