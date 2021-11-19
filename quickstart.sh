@@ -9,6 +9,7 @@ patching(){
     ansible-playbook quickstart.yml
     wget https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/install_docker.sh
     chmod 777 install_docker.sh
+    sudo bash install_docker.sh
     sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y;
 };
 
