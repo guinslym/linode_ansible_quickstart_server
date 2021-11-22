@@ -7,4 +7,4 @@ I couldn't install ansible on my work pc. This is a workaround
 3.  sudo bash quickstart.sh
   
   
-
+medipack trim input.mp4 -s 01:04 -e 14:08 -o output.mp4
