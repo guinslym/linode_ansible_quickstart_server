@@ -51,6 +51,7 @@
             - software-properties-common
             - neovim
             - python3-neovim
+            - glances
         register: echo
         when: ansible_pkg_mgr == 'apt'
       
