@@ -51,6 +51,7 @@
             - software-properties-common
             - neovim
             - python3-neovim
+        register: echo
         when: ansible_pkg_mgr == 'apt'
       
     - name: Remove dependencies that are no longer kequired
