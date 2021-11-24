@@ -12,6 +12,7 @@ patching(){
     chmod 777 install_docker.sh
     sudo bash install_docker.sh
     sudo apt install neofetch
+    neofetch
     sudo rm install_docker.sh
     sudo rm quickstart.yml
     sudo rm quickstart.sh
