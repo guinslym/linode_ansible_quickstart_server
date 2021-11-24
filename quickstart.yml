@@ -40,6 +40,7 @@
             - curl
             - python-is-python3
             - ufw
+            - neovim
             - python3-pip
             - build-essential
             - libssl-dev
