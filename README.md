@@ -8,3 +8,11 @@ I couldn't install ansible on my work pc. This is a workaround
   
   
 medipack trim input.mp4 -s 01:04 -e 14:08 -o output.mp4
+
+# SSH key uploads
+1.  mv ssh-keys/* .ssh/
+2.  cd !$
+3.  chmod 600 ask_a_librarian
+4.  eval "$(ssh-agent -s)"
+5.  ssh-add ~/.ssh/ask_a_librarian
+6.  ssh -T git@github.com
