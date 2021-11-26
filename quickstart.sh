@@ -9,6 +9,8 @@ patching(){
     wget https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/quickstart.yml    
     ansible-playbook quickstart.yml
     sudo apt install neofetch
+    wget https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/docker.yml
+    ansible-playbook docker.yml
     neofetch
     sudo rm quickstart.yml
     sudo rm quickstart.sh
