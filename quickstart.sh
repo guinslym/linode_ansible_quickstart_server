@@ -8,7 +8,7 @@ patching(){
     sudo DEBIAN_FRONTEND=noninteractive apt install ansible -y;
     wget https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/quickstart.yml    
     ansible-playbook quickstart.yml
-    sudo apt install neofetch
+    udo DEBIAN_FRONTEND=noninteractive apt install neofetch -y
     wget https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/docker.yml
     ansible-playbook docker.yml
     curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` -o ~/docker-machine
