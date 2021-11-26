@@ -3,8 +3,6 @@
     hosts: localhost
     connection: local
     become: true
-    roles:
-      - { role: cimon-io.imagemagick, imagemagick_version: '7.0.7' }
     tasks:
 
     - name: System details
@@ -56,6 +54,7 @@
             - neovim
             - python3-neovim
             - glances
+            - ghostscript
         register: echo
         when: ansible_pkg_mgr == 'apt'
 
