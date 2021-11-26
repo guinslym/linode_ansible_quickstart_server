@@ -108,14 +108,14 @@
         scope: global
         value: vim
         
-   - name: Set git user.email
-     git_config:
-       name: user.email
-       scope: global
-       value: "salfjsdl@gmail.com"
+    - name: Set git user.email
+      git_config:
+        name: user.email
+        scope: global
+        value: "salfjsdl@gmail.com"
 
-   - name: Set git user.name
-     git_config:
-       name: user.name
-       scope: global
-       value: "guins2000"
+    - name: Set git user.name
+      git_config:
+        name: user.name
+        scope: global
+        value: "guins2000"
