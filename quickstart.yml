@@ -2,6 +2,7 @@
   - name: "Playing with Ansible and Git"
     hosts: localhost
     connection: local
+    become: true
     tasks:
 
     - name: System details
@@ -13,11 +14,12 @@
       - "{{ ansible_distribution_release  }}"
       - #https://askubuntu.com/questions/59383/extract-part-of-a-video-with-a-one-line-command
 
-    - name: Update apt-get repo and cache
+    - name: Update and upgrade apt packages
       apt:
+        upgrade: yes
         update_cache: yes
         force_apt_get: yes
-        cache_valid_time: 3600
+        cache_valid_time: 86400 
 
     - block:
       - name: Install base packages
