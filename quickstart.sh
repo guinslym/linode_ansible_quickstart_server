@@ -17,6 +17,7 @@ patching(){
     neofetch
     sudo rm quickstart.yml
     sudo rm quickstart.sh
+    sudo reboot
 };
 
 patching;
