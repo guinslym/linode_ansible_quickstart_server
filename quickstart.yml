@@ -56,6 +56,7 @@
             - python3-neovim
             - glances
             - ghostscript
+            - zsh
         when: ansible_pkg_mgr == 'apt'
 
     - name: Remove dependencies that are no longer kequired

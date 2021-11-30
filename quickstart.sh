@@ -17,6 +17,7 @@ patching(){
     neofetch
     sudo rm quickstart.yml
     sudo rm quickstart.sh
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
     sudo reboot
 };
 
