@@ -86,25 +86,25 @@
         name: medipack
 
     - name: Add a setting to ~/.gitconfig
-      community.general.git_config:
+      git_config:
         name: alias.ci
         scope: global
         value: commit
 
     - name: Add a setting to ~/.gitconfig
-      community.general.git_config:
+      git_config:
         name: alias.st
         scope: global
         value: status
 
     - name: Remove a setting from ~/.gitconfig
-      community.general.git_config:
+      git_config:
         name: alias.ci
         scope: global
         state: absent
 
     - name: Add a setting to ~/.gitconfig
-      community.general.git_config:
+      git_config:
         name: core.editor
         scope: global
         value: vim
