@@ -24,8 +24,9 @@
     - block:
       - name: Install base packages
         package:
-          name: "{{ packages }}"
+          name: "{{ item }}"
           state: present
+        packages: "{{ packages }}"
         vars:
           packages:
             - git
@@ -55,7 +56,6 @@
             - python3-neovim
             - glances
             - ghostscript
-        register: echo
         when: ansible_pkg_mgr == 'apt'
 
     - name: Remove dependencies that are no longer kequired
