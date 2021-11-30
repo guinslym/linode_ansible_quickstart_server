@@ -26,7 +26,7 @@
         package:
           name: "{{ item }}"
           state: present
-        packages: "{{ packages }}"
+        loop: "{{ packages }}"
         vars:
           packages:
             - git
