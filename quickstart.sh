@@ -6,6 +6,7 @@ patching(){
     sudo apt update -y;
     sudo DEBIAN_FRONTEND=noninteractive apt install wget -y;
     sudo DEBIAN_FRONTEND=noninteractive apt install ansible -y;
+    wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/ansible.cfg
     wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/guinslym/linode_ansible_quickstart_server/main/quickstart.yml    
     ansible-playbook quickstart.yml
     sudo DEBIAN_FRONTEND=noninteractive apt install neofetch -y
