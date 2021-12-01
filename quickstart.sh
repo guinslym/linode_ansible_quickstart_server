@@ -19,6 +19,11 @@ patching(){
     neofetch
     sudo rm quickstart.yml
     sudo rm quickstart.sh
+    echo 'neofetch' >> ~/.bash_login
+    source ~/.bash_login
+    rm docker-machine
+    rm docker.yml
+    rm ansible.cfg
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
     sudo reboot
 };
