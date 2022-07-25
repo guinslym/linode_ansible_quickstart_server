@@ -53,6 +53,8 @@
             - software-properties-common
             - neovim
             - python3-neovim
+            - redis-server
+            - rabbitmq-server
             - glances
             - ghostscript
             - zsh
