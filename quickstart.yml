@@ -126,17 +126,16 @@
 
     - name: install packages for php -codeigniter/laravel
         apt:
-            pkg:
-                - php7.4-cli
-                - php-xml
-                - php-pgsql
-                - libapache2-mod-php
-                - apache2
-                - git
-                - zip
-                - unzip
-                - curl
-                - php-curl
+          - php7.4-cli
+          - php-xml
+          - php-pgsql
+          - libapache2-mod-php
+          - apache2
+          - git
+          - zip
+          - unzip
+          - curl
+          - php-curl
     state: latest
     update_cache: yes
     become: yes
