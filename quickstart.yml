@@ -85,10 +85,6 @@
       timezone:
         name: America/Toronto
 
-    - name: Installing package for video cut
-      pip:
-        name: medipack
-
     - name: Add a setting to ~/.gitconfig
       git_config:
         name: alias.ci
