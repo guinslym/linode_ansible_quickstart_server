@@ -56,23 +56,24 @@
             - curl
             - php-curl
         when: ansible_pkg_mgr == 'apt'
-    - name: Install uv (Python package manager)
-      shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+    - name: Download uv installer
+      get_url:
+        url: https://astral.sh/uv/install.sh
+        dest: /tmp/uv-install.sh
+        mode: '0755'
+    - name: Install uv system-wide
+      shell: |
+        export UV_INSTALL_DIR="/usr/local/bin"
+        /tmp/uv-install.sh
       args:
-        creates: ~/.cargo/bin/uv
-      become: false
-    - name: Add uv to PATH in .bashrc
-      lineinfile:
-        path: ~/.bashrc
-        line: 'export PATH="$HOME/.cargo/bin:$PATH"'
-        create: yes
-      become: false
-    - name: Add uv to PATH in .zshrc
-      lineinfile:
-        path: ~/.zshrc
-        line: 'export PATH="$HOME/.cargo/bin:$PATH"'
-        create: yes
-      become: false
+        creates: /usr/local/bin/uv
+    - name: Verify uv installation
+      command: uv --version
+      register: uv_version
+      changed_when: false
+    - name: Display uv version
+      debug:
+        msg: "uv installed: {{ uv_version.stdout }}"
     - name: Remove dependencies that are no longer required
       apt:
         autoremove: yes
