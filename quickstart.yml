@@ -4,7 +4,6 @@
     connection: local
     become: true
     tasks:
-
     - name: System details
       when: ansible_distribution == 'Ubuntu' and  ansible_distribution_version == "20.04"
       debug: msg="{{ item }}"
@@ -13,13 +12,11 @@
       - "{{ ansible_distribution_version }}"
       - "{{ ansible_distribution_release  }}"
       - #https://askubuntu.com/questions/59383/extract-part-of-a-video-with-a-one-line-command
-
     - name: Update and upgrade apt packages
       apt:
         update_cache: yes
         force_apt_get: yes
         cache_valid_time: 86400 
-
     - block:
       - name: Install base packages
         package:
@@ -34,7 +31,6 @@
             - tree
             - make
             - gcc
-            - ntp
             - yamllint
             - unzip
             - sysstat
@@ -49,7 +45,6 @@
             - python3-setuptools
             - python3-venv
             - software-properties-common
-            - neovim
             - python3-neovim
             - glances
             - ghostscript
@@ -61,16 +56,13 @@
             - curl
             - php-curl
         when: ansible_pkg_mgr == 'apt'
-
-    - name: Remove dependencies that are no longer kequired
+    - name: Remove dependencies that are no longer required
       apt:
         autoremove: yes
         purge: yes
-
     - name: Remove useless packages from the cache
       apt:
         autoclean: yes
-
     - name: Create locales
       locale_gen:
         name: "{{ item }}"
@@ -79,29 +71,24 @@
         - en_US.UTF-8
         - fr_FR.UTF-8
       when: ansible_pkg_mgr == 'apt'
-
     - name: Set timezone to America/Toronto
       timezone:
         name: America/Toronto
-
     - name: Add a setting to ~/.gitconfig
       git_config:
         name: alias.ci
         scope: global
         value: commit
-
     - name: Add a setting to ~/.gitconfig
       git_config:
         name: alias.st
         scope: global
         value: status
-
     - name: Remove a setting from ~/.gitconfig
       git_config:
         name: alias.ci
         scope: global
         state: absent
-
     - name: Add a setting to ~/.gitconfig
       git_config:
         name: core.editor
@@ -113,11 +100,8 @@
         name: user.email
         scope: global
         value: "salfjsdl@gmail.com"
-
     - name: Set git user.name
       git_config:
         name: user.name
         scope: global
         value: "guins2000"
-    
-   
